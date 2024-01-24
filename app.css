@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    font-family: sans-serif;
 }
 #mainSection {
     display: grid;
@@ -8,12 +9,55 @@ body {
   
     
 }
+
+#ships:hover {
+    cursor: pointer;
+}
+#people:hover {
+    cursor: pointer;
+    opacity: 1.5;
+}
 img {
     margin-top: 200px;
     border-radius: 30%;
    width: 100%;
+ 
+}
+th,tr,td {
+  border: 2px solid white;
 }
 .mainTable {
+  margin: 0;
+  
     color: white;
-    border: 2px solid white;
+   
+padding: 0
 }
+
+.preload {
+  display: none; 
+
+
+  position: fixed; 
+  width:0;
+  height: 0;
+  background-color: rgb(255, 254, 254); 
+  z-index: 1000; 
+}
+
+.emoji {
+  font-size: 50px; 
+}
+
+
+  button:hover {
+    cursor: pointer;
+
+  }
+  .peopleHeading {
+    font-size: 32px;
+    color: White;
+    border: 2px solid white;
+    width: fit-content;
+    
+  }
