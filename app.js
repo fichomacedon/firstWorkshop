@@ -32,7 +32,7 @@ init();
 
 
 function showLoader() {
- 
+ emoji.style.display = `flex`
   loader.style.display = 'flex'; 
 }
 
@@ -43,7 +43,7 @@ function hideLoader() {
 
 
 function fetchStarShips(STARWARS_SHIPS) {
-  // showLoader();
+  
   fetch(STARWARS_SHIPS)
     .then(function (res) {
       return res.json();
@@ -54,12 +54,12 @@ function fetchStarShips(STARWARS_SHIPS) {
       renderStarShipsTable(secondSectionEl,data)
       
     })
-    // .finally(hideLoader());
+    
 }
 shipsInfoEl.addEventListener("click", function(){
   showLoader()
-  fetchStarWars(STARWARS_SHIPS)
- 
+  fetchStarShips(STARWARS_SHIPS)
+  
 })
 peopleInfoEl.addEventListener("click", function (){
   showLoader()
@@ -77,22 +77,12 @@ function fetchStarWars(STARWARS_API) {
        
         
         renderStarWarsTable(secondSectionEl,data)
-       
+        
       });
+      
   }
-  shipsInfoEl.addEventListener("click", function(){
-    showLoader()
-    fetchStarShips(STARWARS_SHIPS)
-    
-  })
-  peopleInfoEl.addEventListener("click", function (){
-    showLoader()
-     fetchStarWars(STARWARS_API)
-     
-     
-  })
-
  
+
 
   function renderStarWarsTable(containerEl, peopleData) {
     
@@ -118,7 +108,8 @@ function fetchStarWars(STARWARS_API) {
   
     containerEl.innerHTML =
     `
-  
+    
+ 
     <h1 class="peopleHeading">StarWars People</h1>
      <table class = "mainTable">
     <thead>
@@ -135,7 +126,8 @@ function fetchStarWars(STARWARS_API) {
     <tbody>${tableHTML}</tbody>
  </table>
  <button id="peoplePrevPage">PreviousPage</button>
- <button id="peopleNextPage">NextPage</button>`
+ <button id="peopleNextPage">NextPage</button>
+`
 
 const peoplePrevBtn = containerEl.querySelector("#peoplePrevPage")
 const peopleNextBtn = containerEl.querySelector("#peopleNextPage")
@@ -183,6 +175,9 @@ function renderStarShipsTable(containerEl, starshipsData) {
   containerEl.innerHTML =
    `
  
+ <div class="preload" >
+ <span class="emoji">🕐</span>
+</div>
 <h1 class="peopleHeading">StarWars StarShips</h1>
    <table class = "mainTable">
   <thead>
